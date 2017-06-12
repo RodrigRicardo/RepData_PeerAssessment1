@@ -29,7 +29,7 @@ print(paste("Median number of steps per day: ",median.raw))
 ```
 
 ## What is the average daily activity pattern?
-```{r daily activity pattern, echo=TRUE}
+```{r daily_activity_pattern_raw, echo=TRUE}
 activity.pattern<-aggregate(dataRaw$steps,by=list(dataRaw$interval),FUN=mean, na.rm=TRUE)
 colnames(activity.pattern)<-c("interval","mean")
 plot(activity.pattern$interval,activity.pattern$mean, type = "l", xlab = "Interval",ylab = "Mean",main = "Time series of daily activity pattern across all days")
@@ -61,7 +61,7 @@ summary(data)
 We are ready to produce the new histogram and check also for differences in the mean and median
 
 ## What is the average daily activity pattern?
-```{r new daily activity pattern, echo=TRUE}
+```{r daily_activity_pattern_processed, echo=TRUE}
 daily.sum.input<-aggregate(data$steps,by=list(data$date),FUN=sum, na.rm=TRUE)
 ## Give good names to each column
 colnames(daily.sum.input)<-c("date","totalSum")
@@ -91,7 +91,7 @@ dataWeekends<-data[ which(data$factor.day=="weekend"),]
 
 Now let's find the daily mean by time periods.
 
-```{r new daily activity pattern by time period, echo=TRUE}
+```{r new_daily_activity_pattern_by_time_period, echo=TRUE}
 activity.pattern.weekday<-aggregate(dataWeekdays$steps,by=list(dataWeekdays$interval),FUN=mean, na.rm=TRUE)
 colnames(activity.pattern.weekday)<-c("interval","mean")
 activity.pattern.weekend<-aggregate(dataWeekends$steps,by=list(dataWeekends$interval),FUN=mean, na.rm=TRUE)

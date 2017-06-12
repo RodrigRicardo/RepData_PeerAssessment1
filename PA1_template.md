@@ -56,7 +56,7 @@ colnames(activity.pattern)<-c("interval","mean")
 plot(activity.pattern$interval,activity.pattern$mean, type = "l", xlab = "Interval",ylab = "Mean",main = "Time series of daily activity pattern across all days")
 ```
 
-![](PA1_template_files/figure-html/daily activity pattern-1.png)<!-- -->
+![](PA1_template_files/figure-html/daily_activity_pattern_raw-1.png)<!-- -->
 
 ```r
 ## Find the maximum interval of average daily activity
@@ -124,7 +124,7 @@ colnames(daily.sum.input)<-c("date","totalSum")
 hist(daily.sum.input$totalSum, xlab="Number of steps", main ="Frequency of total number of  daily steps" )
 ```
 
-![](PA1_template_files/figure-html/new daily activity pattern-1.png)<!-- -->
+![](PA1_template_files/figure-html/daily_activity_pattern_processed-1.png)<!-- -->
 
 ```r
 mean.input<-mean(daily.sum.input$totalSum, na.rm=TRUE)
